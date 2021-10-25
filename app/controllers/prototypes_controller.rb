@@ -1,8 +1,9 @@
 class PrototypesController < ApplicationController
-
   # before_action :move_to_index, except: [:index, :show]
-
   def index
+    # user = User.find(params[id])
+    # params.require(:tweet).permit(:name)
+    # @name = user_name
   end
 end
 
