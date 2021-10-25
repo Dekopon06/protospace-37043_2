@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :prototypes
 
 # バリデーションの設定
-validates :user_name, presence: true
+validates :user_name, presence: true, uniqueness:true
 validates :profile, presence: true
 validates :occupation, presence: true
 validates :position, presence: true
