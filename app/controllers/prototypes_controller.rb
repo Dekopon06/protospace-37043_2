@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :move_to_index, except: [:index, :new]
+  before_action :move_to_index, except: [:index, :new, :show]
     # before_action :move_to_index, except: [:index, :show]
    def index
     @prototypes = Prototype.all
@@ -24,6 +24,27 @@ class PrototypesController < ApplicationController
     def show 
       @prototype = Prototype.find(params[:id])
     end
+
+    def edit
+      @prototype = Prototype.find(params[:id])
+    end
+
+    def update
+      prototype = Prototype.find(params[:id])
+      if prototype.update(prototype_params)
+        redirect_to prototype_path
+      else
+        redirect_to back
+      end
+    end
+
+    def destroy
+      prototype = Prototype.find(params[:id])
+      if prototype.destroy
+        redirect_to root_path
+      end
+    end
+
 
     #  @prototype = Prototype.create(prototype_params[:id])
     #  @prototype = Prototype.new(prototype_params[:id])
