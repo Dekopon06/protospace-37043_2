@@ -19,7 +19,12 @@ class PrototypesController < ApplicationController
     else
        render :new
     end
-   end
+  end
+
+    def show 
+      @prototype = Prototype.find(params[:id])
+    end
+
     #  @prototype = Prototype.create(prototype_params[:id])
     #  @prototype = Prototype.new(prototype_params[:id])
     #  Prototype.create(prototype_params[:id])
@@ -33,13 +38,13 @@ class PrototypesController < ApplicationController
    end
 
    def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
-    end
+     unless user_signed_in?
+       redirect_to action: :index
+     end
    end
-
-
 end
+
+
 
 
 
